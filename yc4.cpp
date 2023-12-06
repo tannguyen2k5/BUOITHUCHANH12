@@ -59,4 +59,19 @@ void WriteFile(char *FileName)
 	printf("Bam phim bat ky de tiep tuc");
 	getch();
 }
-
+void ReadFile(char *FileName)
+{
+	FILE * f;
+	SinhVien sv;
+	f = fopen(FileName, "rb");
+	printf(" MSSV | Ho va ten\n");
+	fread(&sv,sizeof(sv), 1, f);
+	while(!feof(f))
+	{
+		printf("%s | %s\n", sv.Ma,sv.HoTen);
+		fread(&sv,sizeof((sv),1,f));
+	}
+	fclose(f);
+	printf("Bam phim bat ky de tiep tuc!");
+	getch();
+}
