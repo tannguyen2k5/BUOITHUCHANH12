@@ -39,3 +39,24 @@ int main()
 		else break;
 	}
 }
+void WriteFile(char *FileName)
+{
+	FILE *f;
+	int n, i;
+	SinhVien sv;
+	f=fopen(FileName,"ab");
+	printf("Nhap vao so luong sinh vien ");
+	scanf("%d", &n);
+	for(i=1; i<=n; i++)
+	{
+		printf("Sinh vien thu %i\n", i);
+		fflush(stdin);
+		printf(" - Ho ten: ");
+		gets(sv.Hoten);
+		fwrite(&sv,sizeof(sv),1,f);											
+	}
+	fclose(f);
+	printf("Bam phim bat ky de tiep tuc");
+	getch();
+}
+
